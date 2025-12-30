@@ -1143,15 +1143,20 @@ int main(int argc, char **argv)
     usleep(2* 1000000);
     test_iobus();*/
 
+	// ****************************
+	// ***10 lines deleted by VS***
+	// ****************************
 
     iobus_set_direction(IOBUS_OUT);
+
+	// ******************************************************** lines from here to the end were added by VS **************************************************
     controlbus_set_direction(CONTROLBUS_OUT);
     /*test_controlbus();
 
     printf("testing I/O bus for output, check visually...\n");
     usleep(2* 1000000);
     test_iobus();*/
-
+	
 
 
 
@@ -1413,3 +1418,4 @@ int main(int argc, char **argv)
 
     return 0;
 }
+
