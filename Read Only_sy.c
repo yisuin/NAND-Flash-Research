@@ -1212,74 +1212,18 @@ int main(int argc, char **argv)
         }
     }
 
-	unsigned char page_data1[1024];
-    unsigned char page_data2[1024];
-    unsigned char page_data3[1024];
-    unsigned char page_data4[1024];
-    unsigned char page_data5[1024];
-    unsigned char page_data6[1024];
-    
     unsigned char address_cycles1[] = {0x00,0x00,0x54,0x81,0x02,0x00}; //LP Page Address = 340, Block Number = 10
-    get_page_dummy_data(page_data1, 0xFF, 1024); //LP
     unsigned char address_cycles2[] = {0x00,0x00,0x55,0x81,0x02,0x00}; //UP Page Address = 341, Block Number = 10
-    get_page_dummy_data(page_data2, 0xFF, 1024); //UP
     unsigned char address_cycles3[] = {0x00,0x00,0x56,0x81,0x02,0x00}; //XP Page Address = 342, Block Number = 10
-    get_page_dummy_data(page_data3, 0x00, 1024); //XP
     
     unsigned char address_cycles4[] = {0x00,0x00,0x57,0x81,0x02,0x00}; //LP Page Address = 343, Block Number = 10
-    
     unsigned char address_cycles5[] = {0x00,0x00,0x58,0x81,0x02,0x00}; //UP Page Address = 344, Block Number = 10
-    
-    unsigned char address_cycles6[] = {0x00,0x00,0x59,0x81,0x02,0x00}; //XP Page Address = 345, Block Number = 10
-    
-    get_page_dummy_data(page_data6, 0xFF, 1024); //XP
-    get_page_dummy_data(page_data5, 0xFF, 1024); //UP
-    get_page_dummy_data(page_data4, 0x00, 1024); //LP
+    unsigned char address_cycles6[] = {0x00,0x00,0x59,0x81,0x02,0x00}; //XP Page Address = 345, Block Number = 10  
+	
+    unsigned char address_cycles4[] = {0x00,0x00,0x5A,0x81,0x02,0x00}; //LP Page Address = 346, Block Number = 10
+    unsigned char address_cycles5[] = {0x00,0x00,0x5B,0x81,0x02,0x00}; //UP Page Address = 347, Block Number = 10
+    unsigned char address_cycles6[] = {0x00,0x00,0x5C,0x81,0x02,0x00}; //XP Page Address = 348, Block Number = 10  
   
-    //Erase block
-    {
-        printf("Trying to Erase block......\n");
-        erase_block(address_cycles4);
-    }
-
-    //Read Page
-    {
-        read_page(address_cycles4, 72);
-        usleep(10*REALWORLD_DELAY);
-        read_page(address_cycles5, 72);
-        usleep(10*REALWORLD_DELAY);
-        read_page(address_cycles6, 72);
-        usleep(10*REALWORLD_DELAY);
-    }
-
-    //Write Page
-    {
-
-        printf("data = 0x%02x = %c\n", page_data1[0], page_data1[0]);
-        program_page(address_cycles1, page_data1, 1024);
-        // usleep(1000000);
-
-        printf("data = 0x%02x = %c\n", page_data2[0], page_data2[0]);
-        program_page(address_cycles2, page_data2, 1024);
-        // usleep(1000000);
-
-        printf("data = 0x%02x = %c\n", page_data3[0], page_data3[0]);
-        program_page(address_cycles3, page_data3, 1024);
-        // usleep(1000000);
-
-        printf("data = 0x%02x = %c\n", page_data4[0], page_data4[0]);
-        program_page(address_cycles4, page_data4, 1024);
-        //usleep(1000);
-
-        printf("data = 0x%02x = %c\n", page_data5[0], page_data5[0]);
-        program_page(address_cycles5, page_data5, 1024);
-        //usleep(1000);
-
-        printf("data = 0x%02x = %c\n", page_data6[0], page_data6[0]);
-        program_page(address_cycles6, page_data6, 1024);
-        //usleep(1000000);
-    }
-    
     //Read Page
     {
         read_page(address_cycles1, 64);
