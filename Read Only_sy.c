@@ -1211,51 +1211,14 @@ int main(int argc, char **argv)
             printf("At %d = 0x%02x = %c\n",i-1, ID_register[i], ID_register[i]);
         }
     }
-    //unsigned char address_cycles0[] = {0x00,0x00,0x04,0x02,0x00,0x00};
 
-    unsigned char page_data1[1024];
+	unsigned char page_data1[1024];
     unsigned char page_data2[1024];
     unsigned char page_data3[1024];
     unsigned char page_data4[1024];
     unsigned char page_data5[1024];
     unsigned char page_data6[1024];
     
-    
-    // unsigned char address_cycles1[] = {0x00,0x00,0x01,0x00,0x00,0x00}; //LP
-    // get_page_dummy_data(page_data1, 0x01, 1024); //LP
-    // unsigned char address_cycles2[] = {0x00,0x00,0x02,0x00,0x00,0x00}; //UP
-    // get_page_dummy_data(page_data2, 0x02, 1024); //UP
-    // unsigned char address_cycles3[] = {0x00,0x00,0x03,0x00,0x00,0x00}; //XP
-    // get_page_dummy_data(page_data3, 0x03, 1024); //XP    
-
-    // unsigned char address_cycles4[] = {0x00,0x00,0x04,0x00,0x00,0x00}; //LP
-    // get_page_dummy_data(page_data4, 0x00, 1024); //LP
-    // unsigned char address_cycles5[] = {0x00,0x00,0x05,0x00,0x00,0x00}; //UP
-    // get_page_dummy_data(page_data5, 0x00, 1024); //UP
-    // unsigned char address_cycles6[] = {0x00,0x00,0x06,0x00,0x00,0x00}; //XP
-    // get_page_dummy_data(page_data6, 0x00, 1024); //XP
-
-    // unsigned char address_cycles4[] = {0x00,0x00,0x54,0x81,0x02,0x00}; //LP
-    // get_page_dummy_data(page_data4, 0xFF, 1024); //LP
-    // unsigned char address_cycles5[] = {0x00,0x00,0x55,0x81,0x02,0x00}; //UP
-    // get_page_dummy_data(page_data5, 0xFF, 1024); //UP
-    // unsigned char address_cycles6[] = {0x00,0x00,0x56,0x81,0x02,0x00}; //XP
-    // get_page_dummy_data(page_data6, 0x00, 1024); //XP
-
-    // unsigned char address_cycles1[] = {0x00,0x00,0x01,0x80,0x02,0x00}; //LP
-    // get_page_dummy_data(page_data1, 0x01, 1024); //LP
-    // unsigned char address_cycles2[] = {0x00,0x00,0x02,0x80,0x02,0x00}; //UP
-    // get_page_dummy_data(page_data2, 0x02, 1024); //UP
-    // unsigned char address_cycles3[] = {0x00,0x00,0x03,0x80,0x02,0x00}; //XP
-    // get_page_dummy_data(page_data3, 0x03, 1024); //XP
-    // unsigned char address_cycles4[] = {0x00,0x00,0x04,0x80,0x02,0x00}; //LP
-    // get_page_dummy_data(page_data4, 0xFF, 1024); //LP
-    // unsigned char address_cycles5[] = {0x00,0x00,0x05,0x80,0x02,0x00}; //UP
-    // get_page_dummy_data(page_data5, 0x00, 1024); //UP
-    // unsigned char address_cycles6[] = {0x00,0x00,0x06,0x80,0x02,0x00}; //XP
-    // get_page_dummy_data(page_data6, 0x00, 1024); //XP
-
-
     unsigned char address_cycles1[] = {0x00,0x00,0x54,0x81,0x02,0x00}; //LP Page Address = 340, Block Number = 10
     get_page_dummy_data(page_data1, 0xFF, 1024); //LP
     unsigned char address_cycles2[] = {0x00,0x00,0x55,0x81,0x02,0x00}; //UP Page Address = 341, Block Number = 10
@@ -1272,52 +1235,12 @@ int main(int argc, char **argv)
     get_page_dummy_data(page_data6, 0xFF, 1024); //XP
     get_page_dummy_data(page_data5, 0xFF, 1024); //UP
     get_page_dummy_data(page_data4, 0x00, 1024); //LP
-    // //Read Page
-    // {
-    //     read_page(address_cycles1, 64);
-    // }
-
-        
-    // // Read the Status register
-    // {
-    //     printf("Trying to read the Status Register...\n");
-
-    //     latch_command(CMD_READSTATUS); /* command input operation; command: READ ID */
-    //     latch_register(ID_register, 9); /* data output operation */
-    //     printf("At %d = 0x%02x = %c\n",i , ID_register[0], ID_register[0]);
-    // }
-
+  
     //Erase block
     {
         printf("Trying to Erase block......\n");
         erase_block(address_cycles4);
     }
-
-
-    
-    // // Read the Status register
-    // {
-    //     printf("Trying to read the Status Register...\n");
-
-    //     latch_command(CMD_READSTATUS); /* command input operation; command: READ ID */
-    //     latch_register(ID_register, 9); /* data output operation */
-    //     printf("At %d = 0x%02x = %c\n",i , ID_register[0], ID_register[0]);
-    // }
-
-    // //Read Page
-    // {
-    //     read_page(address_cycles1, 64);
-    // }
-
-    // // Read the Status register
-    // {
-    //     printf("Trying to read the Status Register...\n");
-
-    //     latch_command(CMD_READSTATUS); /* command input operation; command: READ ID */
-    //     latch_register(ID_register, 9); /* data output operation */
-    //     printf("At %d = 0x%02x = %c\n",i , ID_register[0], ID_register[0]);
-    // }
-
 
     //Read Page
     {
@@ -1375,31 +1298,6 @@ int main(int argc, char **argv)
     }
 
 
-	/* Erase all blocks */
-//    for( unsigned int nBlockId = 0; nBlockId < 4096; nBlockId++ )
-//    {
-//    	erase_block(nBlockId);
-//    }
-    /* Erase block #0 */
-//	erase_block(0);
-//
-//	usleep(1* 1000000);
-//
-//	/* Write pages 0..9 with dummy data */
-//    unsigned char page_data[PAGE_SIZE];
-//    get_page_dummy_data(page_data);
-//
-//    for(unsigned int m=0; m<10; m++)
-//    {
-//		program_page(0, page_data);
-//		usleep(1* 1000000);
-//    }
-
-    /* Dump memory of the chip */
-    //dump_memory();
-
-
-    // set nCE high
     controlbus_pin_set(PIN_nCE, ON);
 
 
