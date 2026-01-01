@@ -1220,9 +1220,9 @@ int main(int argc, char **argv)
     unsigned char address_cycles5[] = {0x00,0x00,0x58,0x81,0x02,0x00}; //UP Page Address = 344, Block Number = 10
     unsigned char address_cycles6[] = {0x00,0x00,0x59,0x81,0x02,0x00}; //XP Page Address = 345, Block Number = 10  
 	
-    unsigned char address_cycles4[] = {0x00,0x00,0x5A,0x81,0x02,0x00}; //LP Page Address = 346, Block Number = 10
-    unsigned char address_cycles5[] = {0x00,0x00,0x5B,0x81,0x02,0x00}; //UP Page Address = 347, Block Number = 10
-    unsigned char address_cycles6[] = {0x00,0x00,0x5C,0x81,0x02,0x00}; //XP Page Address = 348, Block Number = 10  
+    unsigned char address_cycles7[] = {0x00,0x00,0x5A,0x81,0x02,0x00}; //LP Page Address = 346, Block Number = 10
+    unsigned char address_cycles8[] = {0x00,0x00,0x5B,0x81,0x02,0x00}; //UP Page Address = 347, Block Number = 10
+    unsigned char address_cycles9[] = {0x00,0x00,0x5C,0x81,0x02,0x00}; //XP Page Address = 348, Block Number = 10  
   
     //Read Page
     {
@@ -1237,6 +1237,12 @@ int main(int argc, char **argv)
         read_page(address_cycles5, 64);
         usleep(10*REALWORLD_DELAY);
         read_page(address_cycles6, 64);
+        usleep(10*REALWORLD_DELAY);
+        read_page(address_cycles7, 64);
+        usleep(10*REALWORLD_DELAY);
+        read_page(address_cycles8, 64);
+        usleep(10*REALWORLD_DELAY);
+        read_page(address_cycles9, 64);
         usleep(10*REALWORLD_DELAY);
         
     }
